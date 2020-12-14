@@ -1,0 +1,36 @@
+﻿@model IList<ContosoUniversity.ViewModels.CourseDepartment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<h3>
+    Courses Per Department
+</h3>
+
+<table>
+
+    <tr>
+        <th>Department</th>
+        <th>Course</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Department.Name
+            </td>
+            <td>
+                @{ 
+                    foreach (var course in item.Courses)
+                    {
+                        @course.CourseID @: - @course.Title<br/>
+                    }
+                }
+            </td>
+        </tr>
+    }
+</table>
